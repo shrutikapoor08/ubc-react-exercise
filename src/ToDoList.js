@@ -12,7 +12,7 @@ export default function ToDoList() {
     const item = {
       done: false,
       name: event.target.value,
-      id: todoList.length + 1
+      id: todoList.length + 1,
     };
     setTodoInput(item);
   };
