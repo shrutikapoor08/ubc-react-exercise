@@ -1,16 +1,22 @@
 .App {
   font-family: sans-serif;
   text-align: left;
+  overflow: hidden;
 }
 
-body {
-  font-size: 21px;
+.character-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
 }
-
-.done {
-  text-decoration: line-through;
-  color: green;
+.character-item {
+  font-size: 20px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
 }
-
-.open {
+.character-item img {
+  width: 150px;
+  height: 150px;
 }
