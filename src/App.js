@@ -10,19 +10,25 @@ export default function App() {
     const response = await fetch(API);
     const responseJSON = await response.json();
     console.log(responseJSON.results);
-    return responseJSON.results;
+    setData(responseJSON.results);
   };
 
   useEffect(() => {
-    const rickAndMortyData = fetchRickAndMortyAPI();
-    setData(rickAndMortyData);
-  }, [API]);
+    fetchRickAndMortyAPI();
+  }, []);
 
   return (
     <div className="App">
       <h1>Rick and Morty characters </h1>
-      <ul>
-        {data && data.map((item, index) => <li key={index}> {item.name} </li>)}
+
+      <ul className="character-list">
+        {data.length > 0 &&
+          data.map((item, index) => (
+            <li className="character-item" key={index}>
+              <img alt={item.name} src={item.image} />
+              <span> {item.name} </span>
+            </li>
+          ))}
       </ul>
     </div>
   );
